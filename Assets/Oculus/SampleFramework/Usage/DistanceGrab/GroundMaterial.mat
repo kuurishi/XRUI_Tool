@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9213046046907911043
+--- !u!114 &-7205623652767743664
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24,6 +24,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
   m_ValidKeywords:
   - _EMISSION
+  - _GLOSSINESS_FROM_BASE_ALPHA
+  - _SPECULAR_COLOR
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
