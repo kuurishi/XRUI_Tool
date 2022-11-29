@@ -9,6 +9,7 @@ public class SpawnPrefabOnClick : MonoBehaviour
 
     public GameObject spawnableNameCard; //kinematic object, child of parent
     public GameObject spawnableCurvedInteractive;
+    public GameObject spawnableScrollCanvas;
 
     public GameObject spawnableCube; //gravity objects
     public GameObject spawnableTriangle;
@@ -52,7 +53,7 @@ public class SpawnPrefabOnClick : MonoBehaviour
         //help:  when spawned kinematic obj, it should stay parented to the hand until we move it physically. 
 
         //sets no parent upon movement so it doesnt follow the hand constantly
-        if (spawnedCurvedInteractive.transform.hasChanged) ;
+        if (spawnedCurvedInteractive.transform.hasChanged)
         {
             spawnedCurvedInteractive.transform.SetParent(null);
 
@@ -60,7 +61,18 @@ public class SpawnPrefabOnClick : MonoBehaviour
 
     }
 
+    public void SpawnScrollCanvas()
+    {
+        GameObject spawnedScrollCanvas = Instantiate(spawnableScrollCanvas, spawnPlaceKinematic);
 
+        if(spawnedScrollCanvas.transform.hasChanged)
+        {
+            spawnedScrollCanvas.transform.SetParent(null);
+        }
+    }
+
+
+    //----------------------------------------------------------------------------------------//
 
     // Gravity Objects Spawn place is on the table
     public void SpawnCube()

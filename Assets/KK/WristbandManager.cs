@@ -9,13 +9,17 @@ public class WristbandManager : MonoBehaviour
     public GameObject userWristbandHand;
     public GameObject wristbandMenu;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject panelMain;
+    public GameObject panelComponents;
+    public GameObject panelWire;
+    public GameObject panelPreview;
 
-    // Update is called once per frame
+    public GameObject lastPanelOpen;
+
+    private void Start()
+    {
+        lastPanelOpen = panelMain;
+    }
     void Update()
     {
         float angle = Vector3.Angle(userCamera.transform.forward, -userWristbandHand.transform.up);
@@ -27,5 +31,33 @@ public class WristbandManager : MonoBehaviour
         else wristbandMenu.SetActive(true);
     }
 
+
+    public void OpenComponentsPanel()
+    {
+        NextPanel(panelComponents);
+    }
+
+    public void OpenWirePanel()
+    {
+        NextPanel(panelWire);
+    }
+
+    public void OpenPreviewPanel()
+    {
+        NextPanel(panelPreview);
+    }
+
+
+    public void OpenMainPanel()
+    {
+        NextPanel(panelMain); //close whichever panel is active when we want to go back
+    }
+
+    public void NextPanel(GameObject panel)
+    {
+        lastPanelOpen.SetActive(false);
+        panel.SetActive(true);
+        lastPanelOpen = panel;
+    }
 
 }
