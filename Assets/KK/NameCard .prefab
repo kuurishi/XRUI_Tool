@@ -1257,9 +1257,10 @@ GameObject:
   - component: {fileID: 9085702724487944839}
   - component: {fileID: 528061397129089328}
   - component: {fileID: 3960908026282446457}
+  - component: {fileID: 2779104290938106600}
   m_Layer: 0
   m_Name: 'NameCard '
-  m_TagString: Untagged
+  m_TagString: Spawnables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1365,6 +1366,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!65 &2779104290938106600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910019109793214962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14449161, y: 0.037875243, z: 0.043820076}
+  m_Center: {x: 0.00027815998, y: 0.002007071, z: -0.0019964064}
 --- !u!1 &7381436011147700037
 GameObject:
   m_ObjectHideFlags: 0

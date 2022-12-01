@@ -1,3 +1,6 @@
+// Written by Kristina Koseva, 18.11.2022 //
+// "Concept & Development of an XR Interface Prototyping Tool" //
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
