@@ -1253,9 +1253,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3464329575088543927}
   - component: {fileID: 1321296271057804861}
+  - component: {fileID: 528061397129089328}
   - component: {fileID: 477161394517755170}
   - component: {fileID: 9085702724487944839}
-  - component: {fileID: 528061397129089328}
   - component: {fileID: 3960908026282446457}
   - component: {fileID: 2779104290938106600}
   m_Layer: 0
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910019109793214962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -1303,6 +1303,21 @@ MonoBehaviour:
   _oneGrabTransformer: {fileID: 477161394517755170}
   _twoGrabTransformer: {fileID: 9085702724487944839}
   _maxGrabPoints: -1
+--- !u!114 &528061397129089328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910019109793214962}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bedaac29a943f844a7074b53c8bdf9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grabbable: {fileID: 1321296271057804861}
+  _rigidbody: {fileID: 3960908026282446457}
+  _scaleMassWithSize: 1
 --- !u!114 &477161394517755170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,21 +1350,6 @@ MonoBehaviour:
     MaxScale:
       Constrain: 1
       Value: 3
---- !u!114 &528061397129089328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6910019109793214962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bedaac29a943f844a7074b53c8bdf9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _grabbable: {fileID: 1321296271057804861}
-  _rigidbody: {fileID: 3960908026282446457}
-  _scaleMassWithSize: 1
 --- !u!54 &3960908026282446457
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1552,7 +1552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5046016267131315200
 Transform:
   m_ObjectHideFlags: 0

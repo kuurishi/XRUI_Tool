@@ -4,11 +4,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 
 public class SpawnPrefabOnClick : MonoBehaviour
 {
     
-    public List<GameObject> spawnableObjects; //id like to make this easier. scriptable object list?
+    public static List<GameObject> spawnedObjectList; 
 
     public GameObject spawnableNameCard; //kinematic object, child of parent
     public GameObject spawnableCurvedInteractive;
@@ -24,7 +26,7 @@ public class SpawnPrefabOnClick : MonoBehaviour
 
     void Start()
     {
-        
+        spawnedObjectList = new List<GameObject>();
     }
 
     void Update()
@@ -32,15 +34,29 @@ public class SpawnPrefabOnClick : MonoBehaviour
 
     }
 
+    public void DeactivateGrabbable() //call this function when player presses the Wire button from main menu
+    {
+        foreach (GameObject gameObj in spawnedObjectList)
+        {
+            //if there is grabbable
+            //gameObj.GetComponent<Grabbable>().enabled = false;
+            //else ?
 
+            //gameObj.GetComponent<HandGrabInteractable>().enabled = false;
+            // ???????
+
+        }
+    }
 
     // Kinematic Objects Spawn place is next to the wristband
     public void SpawnNameCard()
     {
         GameObject spawnedNameCard = Instantiate(spawnableNameCard, spawnPlaceKinematic);
 
+        spawnedObjectList.Add(spawnedNameCard);
+
         //help:  when spawned kinematic obj, it should stay parented to the hand until we move it physically. 
-        
+
         //sets no parent upon movement so it doesnt follow the hand constantly
         if (spawnedNameCard.transform.hasChanged);
         {
@@ -53,7 +69,7 @@ public class SpawnPrefabOnClick : MonoBehaviour
     {
         GameObject spawnedCurvedInteractive = Instantiate(spawnableCurvedInteractive, spawnPlaceKinematic);
 
-        //help:  when spawned kinematic obj, it should stay parented to the hand until we move it physically. 
+        spawnedObjectList.Add(spawnedCurvedInteractive);
 
         //sets no parent upon movement so it doesnt follow the hand constantly
         if (spawnedCurvedInteractive.transform.hasChanged)
@@ -68,7 +84,9 @@ public class SpawnPrefabOnClick : MonoBehaviour
     {
         GameObject spawnedScrollCanvas = Instantiate(spawnableScrollCanvas, spawnPlaceKinematic);
 
-        if(spawnedScrollCanvas.transform.hasChanged)
+        spawnedObjectList.Add(spawnedScrollCanvas);
+
+        if (spawnedScrollCanvas.transform.hasChanged)
         {
             spawnedScrollCanvas.transform.SetParent(null);
         }
