@@ -7,7 +7,7 @@ using UnityEngine;
 using Oculus.Interaction;
 using Oculus.Interaction.HandGrab;
 
-public class SpawnPrefabOnClick : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     
     public static List<GameObject> spawnedObjectList; 
@@ -29,21 +29,20 @@ public class SpawnPrefabOnClick : MonoBehaviour
         spawnedObjectList = new List<GameObject>();
     }
 
-    void Update()
-    {
 
-    }
-
-    public void DeactivateGrabbable() //call this function when player presses the Wire button from main menu
+    public void DeactivateGrabbable(bool isGrabbable) //call this function when player presses the Wire button from main menu
     {
         foreach (GameObject gameObj in spawnedObjectList)
         {
             //if there is grabbable
-            //gameObj.GetComponent<Grabbable>().enabled = false;
-            //else ?
+            //gameObj.GetComponent<Grabbable>().enabled = false; //disabling this doesnt do anything
+            
 
-            //gameObj.GetComponent<HandGrabInteractable>().enabled = false;
-            // ???????
+            if (gameObj.GetComponentInChildren<HandGrabInteractable>() != null)
+            {
+                gameObj.GetComponentInChildren<HandGrabInteractable>().enabled = isGrabbable;
+            }
+
 
         }
     }

@@ -46,7 +46,7 @@ public class WireManager : MonoBehaviour
 
 
     // (rn checks all pinches, later should only check for pinches when Preview mode is active) !!!!!
-    private void Update()
+    public void UpdateWireState()
     {
         SetPinching(); //access pinching from OVR scripts
 
