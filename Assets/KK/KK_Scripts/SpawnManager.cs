@@ -34,7 +34,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject spawnButton; //base prefab
     public Transform buttonParent; //parent where spawnable buttons should spawn (child to Panel_Components)
 
-
+    public WireManager wireManager;
+    public WireInput wireInput;
 
     void Start()
     {

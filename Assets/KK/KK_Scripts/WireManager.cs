@@ -4,6 +4,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using Oculus.Interaction;
 
 
 public class WireManager : MonoBehaviour
@@ -27,13 +29,15 @@ public class WireManager : MonoBehaviour
     public bool isEndObjectSet = false;
 
     public GameObject wirePrefab; //add the wire prefab!
+    public List<GameObject> createdWires = new List<GameObject>();
     public GameObject currentWire;
     
     //-----------accessed only after wire is created && swiped:------------//
 
-    private bool isWireCreated = false; //used to enable wire dropdown 
+    public bool isWireCreated = false; //used in the tutorial manager too
 
     #endregion
+
 
 
     #region functions to create a wire
@@ -84,8 +88,6 @@ public class WireManager : MonoBehaviour
             isEndObjectSet = true;
             Debug.Log("End Point SET");
 
-            
-
         }
             
 
@@ -96,9 +98,27 @@ public class WireManager : MonoBehaviour
 
             if (currentWire != null)
             {
+
                 currentWire.GetComponent<LineRenderer>().SetPosition(1, endPoint);
+                createdWires.Add(currentWire);
+
                 currentWire = null;
-                Debug.Log("Wire-to-End is Created");
+                Debug.Log("Wire-to-End is Created and added to the list of created wires");
+
+                isWireCreated = true;
+
+                WireInput wireInput = startObject.AddComponent<WireInput>();
+                wireInput.endObjectReference = endObject;
+
+                if (startObject.GetComponentInChildren<PointableUnityEventWrapper>() != null)
+                {
+                    startObject.GetComponentInChildren<PointableUnityEventWrapper>().WhenRelease.AddListener(wireInput.EnableOther);
+                }
+                else if (startObject.GetComponentInChildren<InteractableUnityEventWrapper>() != null)
+                {
+                    startObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(wireInput.EnableOther);
+                }
+
             }
             
 
